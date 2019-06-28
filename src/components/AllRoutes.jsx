@@ -1,21 +1,20 @@
 import React from 'react';
-// import { fetchRoutes } from './services/api-helper';
-import { Link, Route } from 'react-router-dom';
 
 
 class AllRoutes extends React.Component {
-
-
-
   render() {
     return (
       <div>
-        {this.props.routes.map((route) => (
-          <div key={route.id}>
-            <p>{route.name}</p>
+        {
+          this.props.routes.map((route) => (
 
-          </div>
-        ))}
+            <div key={route.id}>
+              <p>name: {route.name}</p>
+              <p>location: {route.location}</p>
+              <p>Type of climb: {route.type}</p>
+              <p>Number of pitches: {route.pitches}</p>
+            </div>
+          ))}
       </div>
     )
   }

@@ -1,17 +1,16 @@
 # project description 
 
-In this project, I will be building an app that will fetch data from the REI Mountain Project API. You will be able to search across all the rockclimbing routes available in this database. You will be able to see the name of the climb, the type (Trad or Sport), how many pitches it has,  where the location is as well as images of the location. There will be a Home component, a search component, a component that displays the search information that was rendered, a contact us component where users will be prompted to submit their information about new climbs, a blog component and a ...(missing one more component tbd) 
+What's the weather like to climb today? 
 
-link of API: https://www.mountainproject.com/data
-
-The header will have a video that will be responsive to a photo when it goes to a certain size.
+In this app, the user will be able to search specific climbing routes in a set longitude & latitude, as well as see what the weather is like for that region. Using the Mountain Porject Api from REI (link of API: https://www.mountainproject.com/data) and the weather Api from Dark Sky (https://darksky.net). The app will be composed of a Home page where you will be able to see the current Weather Data in Kauai at that day, a Climb page where you will be able to search and see the information that the REI Api provides about the climbs in that area, as well as a contact us page where the user may submit a new climb that they have found. The header of the Climb page will have a video that will be responsive to a photo when it goes to a certain size.
 
 ## Issues 
-
-I think that one major promblem that will arrise is that the api i am using doesn't have much documentation about it. It doesn't have documentation about how to specifically hit the api and get the information out of it. 
-
+The issues i see arrising is mixing multiple different API's together and how to structure everything in my documents. With the REI APi since there is no endpoint i can only search within a set longitude and latitude.
 
 
 ### POST MVP
 
-I would like to add a Map Api so that people could geo search climbs close to them and see
+Post MVP I would like to maybe add a third API. Adding the country api will let users see information of the place that they are looking to climb in. 
+
+
+wireframe: https://i.imgur.com/U8V5InL.jpg
