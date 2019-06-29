@@ -3,6 +3,7 @@ import './App.css';
 import { Route, Link } from "react-router-dom";
 import { fetchRoutes, fetchWeather } from './services/api-helper';
 import AllRoutes from './components/AllRoutes';
+import AllWeather from './components/AllWeather';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +20,9 @@ class App extends React.Component {
       },
       weather: [],
       weatherData: {
-        currently: '',
+        currentWeather: {
+          summary: '',
+        }
       }
 
     }
@@ -35,8 +38,9 @@ class App extends React.Component {
   getWeather = async () => {
     const weathers = await fetchWeather();
     this.setState({
-      weather: we
+      weather: Object.values(weathers)
     })
+    console.log(this.state.weather)
   }
 
   handleChange = (e) => {
@@ -50,8 +54,23 @@ class App extends React.Component {
     )
   }
 
+  handleChange = (e) => {
+    const { currently, value } = e.target;
+    this.setState((prevState) => ({
+      weatherData: {
+        ...prevState.weatherData,
+        [currently]: value
+      }
+    })
+    )
+  }
+
   componentDidMount = async () => {
     await this.getRoutes();
+  }
+
+  componentWillMount = async () => {
+    await this.getWeather();
   }
 
   render() {
@@ -60,13 +79,18 @@ class App extends React.Component {
         <header>
           <h3>What's the weather like to climb today?</h3>
           <Link to='all-routes'>All</Link>
+          <Link to='all-weather'>Weather</Link>
         </header>
         <div id='display'>
           <Route path='/all-routes' render={() => (
             <AllRoutes
               routes={this.state.routes}
-            />
-          )} />
+
+            />)} />
+          <Route path='/all-weather' render={() => (
+            <AllWeather
+              weather={this.state.weather}
+            />)} />
         </div>
         <footer>
           <p></p>
