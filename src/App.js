@@ -4,6 +4,12 @@ import { Route, Link } from "react-router-dom";
 import { fetchRoutes, fetchWeather } from './services/api-helper';
 import AllRoutes from './components/AllRoutes';
 import AllWeather from './components/AllWeather';
+import ContactUs from './components/ContactUs';
+import Home from './components/Home';
+import Blog from './components/Blog';
+import Footer from './components/Footer';
+
+
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +28,7 @@ class App extends React.Component {
       weatherData: {
         currentWeather: {
           summary: '',
+          temperature: '',
         }
       }
 
@@ -40,6 +47,7 @@ class App extends React.Component {
     this.setState({
       weather: Object.values(weathers)
     })
+
     console.log(this.state.weather)
   }
 
@@ -55,11 +63,11 @@ class App extends React.Component {
   }
 
   handleChange = (e) => {
-    const { currently, value } = e.target;
+    const { currentWeather, value } = e.target;
     this.setState((prevState) => ({
       weatherData: {
         ...prevState.weatherData,
-        [currently]: value
+        [currentWeather]: value
       }
     })
     )
@@ -77,23 +85,33 @@ class App extends React.Component {
     return (
       <div className="App" >
         <header>
-          <h3>What's the weather like to climb today?</h3>
-          <Link to='all-routes'>All</Link>
-          <Link to='all-weather'>Weather</Link>
-        </header>
-        <div id='display'>
-          <Route path='/all-routes' render={() => (
-            <AllRoutes
-              routes={this.state.routes}
+          <nav>
+            <Link className='NavLinks' to='home'>Home</Link>
+            <Link className='NavLinks' to='all-routes'>Climbs</Link>
+            <Link className='NavLinks' to='contact-us'>Contact Us</Link>
 
-            />)} />
-          <Route path='/all-weather' render={() => (
-            <AllWeather
-              weather={this.state.weather}
-            />)} />
-        </div>
+          </nav>
+
+
+        </header>
+        <main>
+
+          <div id='display'>
+            <Route path='/home' render={() => <Home />} />
+            <Route path='/all-routes' render={() => (
+              <AllRoutes
+                routes={this.state.routes}
+              />)} />
+            <Route path='/contact-us' render={() => <ContactUs />} />
+            <Route path='/all-weather' render={() => (
+              <AllWeather
+                weather={this.state.weather}
+              />)} />
+
+          </div>
+        </main>
         <footer>
-          <p></p>
+
         </footer>
       </div >
     );

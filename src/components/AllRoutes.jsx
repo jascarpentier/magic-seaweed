@@ -12,7 +12,7 @@ class AllRoutes extends React.Component {
               <p>name: {route.name}</p>
               <p>location: {route.location}</p>
               <p>Type of climb: {route.type}</p>
-              <p>Number of pitches: {route.pitches}</p>
+              <p>Number of pitches:{route.pitches}</p>
             </div>
           ))}
       </div>
