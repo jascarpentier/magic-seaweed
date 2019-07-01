@@ -1,22 +1,19 @@
 import React from 'react';
 
 
-class AllWeather extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>hello</h1>
-        {
-          this.props.weather.data && this.props.weather.map((weathers) => (
+const AllWeather = props => {
 
-            <div key={weathers.id}>
-              <p>{weathers.currentWeather}</p>
+  return (
+    <div className="weather">
+      <h1>{props.weather}</h1>
 
-            </div>
-          ))}
-      </div>
-    )
-  }
+    </div>
+
+  )
+
 }
 
 export default AllWeather;
+
+
+

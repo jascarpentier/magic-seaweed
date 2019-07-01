@@ -7,7 +7,7 @@ import AllWeather from './components/AllWeather';
 import ContactUs from './components/ContactUs';
 import Home from './components/Home';
 import Blog from './components/Blog';
-import Footer from './components/Footer';
+
 
 
 
@@ -18,22 +18,21 @@ class App extends React.Component {
       routes: [],
       formData: {
         name: '',
+        imgSmall: '',
         location: [
-          '0 ', '',
+          '',
         ],
         type: '',
         pitches: ''
       },
       weather: [],
-      weatherData: {
-        currentWeather: {
-          summary: '',
-          temperature: '',
-        }
-      }
-
+      temp: '',
     }
   }
+
+
+
+
 
   getRoutes = async () => {
     const route = await fetchRoutes();
@@ -44,14 +43,19 @@ class App extends React.Component {
 
   getWeather = async () => {
     const weathers = await fetchWeather();
+    const varWeather = Object.values(weathers);
+    const temp = varWeather[3].temp;
+    console.log(temp)
     this.setState({
-      weather: Object.values(weathers)
-    })
+      weather: temp
 
+    })
     console.log(this.state.weather)
+
+
   }
 
-  handleChange = (e) => {
+  handleRouteChange = (e) => {
     const { name, value } = e.target;
     this.setState((prevState) => ({
       formData: {
@@ -73,12 +77,11 @@ class App extends React.Component {
     )
   }
 
-  componentDidMount = async () => {
-    await this.getRoutes();
-  }
 
-  componentWillMount = async () => {
+
+  componentDidMount = async () => {
     await this.getWeather();
+    await this.getRoutes();
   }
 
   render() {
@@ -88,6 +91,7 @@ class App extends React.Component {
           <nav>
             <Link className='NavLinks' to='home'>Home</Link>
             <Link className='NavLinks' to='all-routes'>Climbs</Link>
+            <Link className='NavLinks' to='/blog'>Blog</Link>
             <Link className='NavLinks' to='contact-us'>Contact Us</Link>
 
           </nav>
@@ -103,6 +107,7 @@ class App extends React.Component {
                 routes={this.state.routes}
               />)} />
             <Route path='/contact-us' render={() => <ContactUs />} />
+            {/* <Route path='/blog' render={() => <Blog />} /> */}
             <Route path='/all-weather' render={() => (
               <AllWeather
                 weather={this.state.weather}
@@ -110,9 +115,6 @@ class App extends React.Component {
 
           </div>
         </main>
-        <footer>
-
-        </footer>
       </div >
     );
   }

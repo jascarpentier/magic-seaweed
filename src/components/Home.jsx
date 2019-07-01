@@ -11,6 +11,12 @@ class Home extends React.Component {
         <div id="hero-container" />
         <h5 className="highlight"> What's the weather like to climb today?</h5>
         <div id="hero-photo" />
+        <div className='homepage'>
+          <Blog />
+          <AllWeather />
+
+
+        </div>
 
         <>
           <section id="spotlight" />
@@ -38,8 +44,9 @@ Rappel easily done with a 60 metre rope</p>
             <button className="spotButtons">Read now</button>
           </div>
         </>
-
+        <Footer />
       </div >
+
 
     )
   }

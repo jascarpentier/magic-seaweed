@@ -9,10 +9,13 @@ class AllRoutes extends React.Component {
           this.props.routes.map((route) => (
 
             <div key={route.id}>
-              <p>name: {route.name}</p>
-              <p>location: {route.location}</p>
-              <p>Type of climb: {route.type}</p>
-              <p>Number of pitches:{route.pitches}</p>
+              <div className='climbs'>
+                <p>name: {route.name}</p>
+                {/* <img>{route.imgSmall}</img> */}
+                <p>location: {route.location}</p>
+                <p>Type of climb: {route.type}</p>
+                <p>Number of pitches:{route.pitches}</p>
+              </div>
             </div>
           ))}
       </div>

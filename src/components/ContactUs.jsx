@@ -5,11 +5,11 @@ class ContactUs extends React.Component {
     return (
       <div>
         <header className='contactheader'>
-          <h1>Contact us</h1>
+
 
           <div className='herophotocontact'>
-            <img src='https://imgur.com/RCOhCN3.jpeg' />
-            <p>While we are pretty good at communicating by smoke signales, there are simpler and less time-consuming ways to get in touch with us. </p>
+            <img className='photocontact' src='https://imgur.com/RCOhCN3.jpeg' alt='' />
+            <h2>While we are pretty good at communicating by smoke signales, there are simpler and less time-consuming ways to get in touch with us.</h2>
           </div>
         </header>
         <main>
@@ -35,6 +35,7 @@ class ContactUs extends React.Component {
             </div>
           </section>
         </main>
+
       </div>
 
 
