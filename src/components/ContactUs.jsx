@@ -9,13 +9,12 @@ class ContactUs extends React.Component {
 
           <div className='herophotocontact'>
             <img className='photocontact' src='https://imgur.com/RCOhCN3.jpeg' alt='' />
-            <h2>While we are pretty good at communicating by smoke signales, there are simpler and less time-consuming ways to get in touch with us.</h2>
           </div>
         </header>
         <main>
           <section id="contact-us">
             <div className="Contact-us">
-              <h3>Drop us a line</h3>
+              <h3>While we are pretty good at communicating by smoke signales, there are simpler and less time-consuming ways to get in touch with us.</h3>
               <label htmlFor="firsname">First Name</label>
               <input type="text" id="fname" name="firstname" placeholder="Your name.." />
 

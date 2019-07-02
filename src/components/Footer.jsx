@@ -5,7 +5,7 @@ class Footer extends React.Component {
     return (
       <div>
         <footer>
-          <h2>Keeping you High and Dry</h2>
+          <h7 className='footerh2'>Keeping you High and Dry</h7>
           <p>
             <span className="footerREI"></span>
             SoHo flagship

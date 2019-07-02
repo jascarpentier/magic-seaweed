@@ -21,7 +21,8 @@ class App extends React.Component {
           '',
         ],
         type: '',
-        pitches: ''
+        pitches: '',
+        url: ''
       },
       weather: [],
       temp: '',
@@ -90,7 +91,6 @@ class App extends React.Component {
           <nav>
             <Link className='NavLinks' to='home'>Home</Link>
             <Link className='NavLinks' to='all-routes'>Climbs</Link>
-            <Link className='NavLinks' to='/blog'>Blog</Link>
             <Link className='NavLinks' to='contact-us'>Contact Us</Link>
           </nav>
 

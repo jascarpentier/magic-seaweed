@@ -4,18 +4,22 @@ import React from 'react';
 class AllRoutes extends React.Component {
   render() {
     return (
-      <div>
+
+      <div className='climbing'>
         {
+
           this.props.routes.map((route) => (
 
             <div key={route.id}>
               <div className='climbs'>
-                <img src={route.imgSmall} alt='' />
-                <p>name: {route.name}</p>
-                <p>location: {route.location}</p>
+                <p> {route.name}</p>
+                <img className='climbpageimg' src={route.imgSmall ? route.imgSmall : 'https://i.imgur.com/KUXF8XR.jpg'} alt='' />
+                <p>location: {route.location[5]}</p>
                 <p>Type of climb: {route.type}</p>
                 <p>Number of pitches:{route.pitches}</p>
+                <p><a className='routelink' href={route.url}>Read more</a></p>
               </div>
+
             </div>
           ))}
       </div>
