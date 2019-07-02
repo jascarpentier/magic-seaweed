@@ -17,7 +17,7 @@ export const fetchRoutes = async () => {
 // }
 
 export const fetchWeather = async () => {
-  const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=46.118549&lon=74.592957&appid=${API_KEY}`)
+  const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=46.118549&lon=74.592957&appid=${API_KEY}&units=metric`)
   return response.data;
 }
 

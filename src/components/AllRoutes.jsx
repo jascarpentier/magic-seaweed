@@ -10,8 +10,8 @@ class AllRoutes extends React.Component {
 
             <div key={route.id}>
               <div className='climbs'>
+                <img src={route.imgSmall} alt='' />
                 <p>name: {route.name}</p>
-                {/* <img>{route.imgSmall}</img> */}
                 <p>location: {route.location}</p>
                 <p>Type of climb: {route.type}</p>
                 <p>Number of pitches:{route.pitches}</p>

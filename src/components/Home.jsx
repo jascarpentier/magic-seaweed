@@ -1,6 +1,5 @@
 import React from 'react';
 import Blog from './Blog';
-import Footer from './Footer';
 import AllWeather from './AllWeather';
 
 
@@ -10,14 +9,14 @@ class Home extends React.Component {
       <div>
         <div id="hero-container" />
         <h5 className="highlight"> What's the weather like to climb today?</h5>
+        <input className='weatherButton' type="button" value="Get Weather" onClick={this.props.handleSubmit} />
+
         <div id="hero-photo" />
+        <AllWeather />
         <div className='homepage'>
           <Blog />
-          <AllWeather />
-
 
         </div>
-
         <>
           <section id="spotlight" />
           <h2>Spotlight Climbs</h2>
@@ -44,7 +43,7 @@ Rappel easily done with a 60 metre rope</p>
             <button className="spotButtons">Read now</button>
           </div>
         </>
-        <Footer />
+
       </div >
 
 

@@ -6,9 +6,7 @@ import AllRoutes from './components/AllRoutes';
 import AllWeather from './components/AllWeather';
 import ContactUs from './components/ContactUs';
 import Home from './components/Home';
-import Blog from './components/Blog';
-
-
+import Footer from './components/Footer';
 
 
 class App extends React.Component {
@@ -30,10 +28,6 @@ class App extends React.Component {
     }
   }
 
-
-
-
-
   getRoutes = async () => {
     const route = await fetchRoutes();
     this.setState({
@@ -50,8 +44,6 @@ class App extends React.Component {
       weather: temp
 
     })
-    console.log(this.state.weather)
-
 
   }
 
@@ -69,7 +61,7 @@ class App extends React.Component {
   handleChange = (e) => {
     const { currentWeather, value } = e.target;
     this.setState((prevState) => ({
-      weatherData: {
+      weather: {
         ...prevState.weatherData,
         [currentWeather]: value
       }
@@ -77,6 +69,13 @@ class App extends React.Component {
     )
   }
 
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    const weather = fetchWeather(this.state.temp);
+    this.setState({
+      weather: weather
+    })
+  }
 
 
   componentDidMount = async () => {
@@ -93,7 +92,6 @@ class App extends React.Component {
             <Link className='NavLinks' to='all-routes'>Climbs</Link>
             <Link className='NavLinks' to='/blog'>Blog</Link>
             <Link className='NavLinks' to='contact-us'>Contact Us</Link>
-
           </nav>
 
 
@@ -101,20 +99,26 @@ class App extends React.Component {
         <main>
 
           <div id='display'>
-            <Route path='/home' render={() => <Home />} />
+            <Route path='/home' render={() =>
+              <Home
+                handleSubmit={this.handleSubmit}
+                weather={this.state.weather}
+                value={this.props.temp}
+              />} />
             <Route path='/all-routes' render={() => (
               <AllRoutes
                 routes={this.state.routes}
               />)} />
             <Route path='/contact-us' render={() => <ContactUs />} />
-            {/* <Route path='/blog' render={() => <Blog />} /> */}
+            {/* <Route path='/blog' render={() => <Blog />} />
             <Route path='/all-weather' render={() => (
               <AllWeather
                 weather={this.state.weather}
-              />)} />
+              />)} /> */}
 
           </div>
         </main>
+        <Footer />
       </div >
     );
   }
