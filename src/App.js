@@ -24,7 +24,6 @@ class App extends React.Component {
         pitches: '',
         url: ''
       },
-      weather: [],
       temp: '',
     }
   }
@@ -38,12 +37,8 @@ class App extends React.Component {
 
   getWeather = async () => {
     const weathers = await fetchWeather();
-    const varWeather = Object.values(weathers);
-    const temp = varWeather[3].temp;
-    console.log(temp)
     this.setState({
-      weather: temp
-
+      temp: weathers.main.temp
     })
 
   }
@@ -59,28 +54,15 @@ class App extends React.Component {
     )
   }
 
-  handleChange = (e) => {
-    const { currentWeather, value } = e.target;
-    this.setState((prevState) => ({
-      weather: {
-        ...prevState.weatherData,
-        [currentWeather]: value
-      }
-    })
-    )
-  }
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const weather = fetchWeather(this.state.temp);
-    this.setState({
-      weather: weather
-    })
+    this.getWeather();
   }
 
 
   componentDidMount = async () => {
-    await this.getWeather();
+    // await this.getWeather();
     await this.getRoutes();
   }
 
@@ -102,7 +84,7 @@ class App extends React.Component {
             <Route path='/home' render={() =>
               <Home
                 handleSubmit={this.handleSubmit}
-                weather={this.state.weather}
+                temp={this.state.temp}
                 value={this.props.temp}
               />} />
             <Route path='/all-routes' render={() => (
@@ -110,11 +92,10 @@ class App extends React.Component {
                 routes={this.state.routes}
               />)} />
             <Route path='/contact-us' render={() => <ContactUs />} />
-            {/* <Route path='/blog' render={() => <Blog />} />
             <Route path='/all-weather' render={() => (
               <AllWeather
-                weather={this.state.weather}
-              />)} /> */}
+                temp={this.state.temp}
+              />)} />
 
           </div>
         </main>

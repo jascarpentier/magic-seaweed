@@ -13,7 +13,8 @@ class Home extends React.Component {
           <div id="hero-photo" />
         </div>
 
-        <AllWeather />
+        <AllWeather
+          temp={this.props.temp} />
         <div className='homepage'>
           <Blog />
 

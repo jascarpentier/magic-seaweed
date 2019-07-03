@@ -14,7 +14,7 @@ class AllRoutes extends React.Component {
               <div className='climbs'>
                 <p> {route.name}</p>
                 <img className='climbpageimg' src={route.imgSmall ? route.imgSmall : 'https://i.imgur.com/KUXF8XR.jpg'} alt='' />
-                <p>location: {route.location[5]}</p>
+                <p>location: {route.location[5] ? route.location[5] : <p>Not known</p>}</p>
                 <p>Type of climb: {route.type}</p>
                 <p>Number of pitches:{route.pitches}</p>
                 <p><a className='routelink' href={route.url}>Read more</a></p>

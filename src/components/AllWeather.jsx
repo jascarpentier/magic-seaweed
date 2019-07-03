@@ -5,7 +5,7 @@ const AllWeather = props => {
 
   return (
     <div className="weather">
-      <h1>{props.weather}</h1>
+      <h1>The current temperature is: {props.temp} degrees </h1>
     </div>
 
   )
