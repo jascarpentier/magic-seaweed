@@ -8,7 +8,7 @@ class Home extends React.Component {
     return (
       <div>
         <div id="hero-container" >
-          <h5 className="highlight"> What's the weather like to climb today?</h5>
+          <h5 className="highlight"> What's the weather like to climb today in the Laurentians?</h5>
           <input className='weatherButton' type="button" value="Get Weather" onClick={this.props.handleSubmit} />
           <div id="hero-photo" />
         </div>
