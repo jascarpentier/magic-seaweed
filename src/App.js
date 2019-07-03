@@ -81,7 +81,7 @@ class App extends React.Component {
         <main>
 
           <div id='display'>
-            <Route path='/home' render={() =>
+            <Route exact path='/' render={() =>
               <Home
                 handleSubmit={this.handleSubmit}
                 temp={this.state.temp}

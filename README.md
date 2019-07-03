@@ -1,5 +1,7 @@
 # project description 
 
+http://staydry.surge.sh/home
+
 What's the weather like to climb today? 
 
 In this app, the user will be able to search specific climbing routes in a set longitude & latitude, as well as see what the weather is like for that region. Using the Mountain Porject Api from REI (link of API: https://www.mountainproject.com/data) and the weather Api from Open Weather (https://openweathermap.org). The app will be composed of a Home page where you will be able to see the current Weather Data in the Laurentians at that day, a Climb page where you will be able to search and see the information that the REI Api provides about the climbs in that area, as well as a contact us page where the user may submit a new climb that they have found. The header of the Climb page will have a video that will be responsive to a photo when it goes to a certain size.
