@@ -44,9 +44,10 @@ a:focus {
 }
 
 h5 {
-  font-size: 4em;
+  font-size: 3em;
   margin-top: 0;
   margin-bottom: 0.5em;
+  float: right;
 }
 
 a.NavLinks {
@@ -61,7 +62,7 @@ a.NavLinks {
    justify-content: center;
   align-items: center;
   text-align: center;
-  margin-bottom: 175px;
+  margin-bottom: 105px;
 }
 #hero-photo { 
   position: absolute;  
@@ -89,6 +90,10 @@ a.NavLinks {
   font-size: 1em;
   border-radius: 20%;
   cursor: pointer;
+}
+
+.weatherButton:hover {
+  color:rgb(169, 135, 121);
 }
 
 
@@ -166,6 +171,7 @@ input[type=text], select, textarea {
   height: 40vw;
   background-color: #b3c1b0;
   overflow: hidden;
+ object-fit: cover;
   }
 
 .highlight {
@@ -283,22 +289,30 @@ footer {
   text-align: center;
 }
 
+/* MEDIA QUERIES */
+
 @media only screen
 and (max-width: 900px) {
   h5 {
     display: none;
   }
   #hero-photo {
-    height: 400px;
+    height: 100%;
   }
 
   #hero-container {
-    margin-bottom: 10px;
+    margin-bottom: 70px;
   }
-  .weatherButton {
-    margin-bottom: 100px;
-  }
+h1 {
+background: #666;
+margin: 0;
 
+}
+
+footer {
+  margin: 0;
+  padding: 20px;
+}
 #blog { 
 display: none;
  }
@@ -311,12 +325,10 @@ display: none;
 }
 
 #spotlight {
- display: inline;
+ display: none;
 }  
-.spotButtons {
- margin-bottom: 20px;
- 
-}
+
+
 .climbing {
   display: inline;
   float: right;
@@ -324,4 +336,18 @@ display: none;
   
 }
 
+h3 {
+  display: none;
+}
+.photocontact {
+  height: 300px;
+}
+}
+
+@media only screen
+and (max-width: 1330px) {
+  h5 {
+    font-size: 40px;
+    
+  }
 }
