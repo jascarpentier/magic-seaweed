@@ -40,7 +40,6 @@ class App extends React.Component {
     this.setState({
       temp: weathers.main.temp
     })
-
   }
 
   handleRouteChange = (e) => {
@@ -50,19 +49,15 @@ class App extends React.Component {
         ...prevState.formData,
         [name]: value
       }
-    })
-    )
+    }))
   }
-
 
   handleSubmit = (ev) => {
     ev.preventDefault();
     this.getWeather();
   }
 
-
   componentDidMount = async () => {
-    // await this.getWeather();
     await this.getRoutes();
   }
 
@@ -71,11 +66,10 @@ class App extends React.Component {
       <div className="App" >
         <header>
           <nav>
-            <Link className='NavLinks' to='home'>Home</Link>
+            <Link className='NavLinks' to='/'>Home</Link>
             <Link className='NavLinks' to='all-routes'>Climbs</Link>
             <Link className='NavLinks' to='contact-us'>Contact Us</Link>
           </nav>
-
 
         </header>
         <main>
